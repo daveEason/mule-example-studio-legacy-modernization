@@ -3,3 +3,11 @@ This is a simple Mule Studio project that illustrates a Legacy System Modernizat
 A SoapUI (3.6.1) project has been included for testing this application in the 'src/test/resources' directory named:
 
 "LegacySystemModernization-soapui-project.xml"
+
+To begin working with this project in Mule Studio:
+
+- After you have cloned the repository from gitHub to a local directory
+
+- Import the project to Mule Studio via "File > Import > Mule > Mule Studio Project from External Location" (and follow the prompts)
+
+More information about Mulesoft can be found at mulesoft.com (Enterprise) OR mulesoft.org (Community).
