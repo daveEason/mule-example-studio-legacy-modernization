@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="LegacySystemModernization" soapui-version="3.6.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="IFulfillmentServiceSoapBinding" type="wsdl" bindingName="{http://ordermgmt.org/}IFulfillmentServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:1080/OrderFulfillment?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:1080/OrderFulfillment?wsdl"><con:part><con:url>http://localhost:1080/OrderFulfillment?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IFulfillmentService" targetNamespace="http://ordermgmt.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ordermgmt.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://ordermgmt.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="order" type="tns:order"/>
+      <xs:element name="orderItem" type="tns:orderItem"/>
+      <xs:element name="putShippingOrder" type="tns:putShippingOrder"/>
+      <xs:element name="putShippingOrderResponse" type="tns:putShippingOrderResponse"/>
+      <xs:element name="shippingOrder" type="tns:shippingOrder"/>
+      <xs:element name="shippingOrderConfirmation" type="tns:shippingOrderConfirmation"/>
+      <xs:complexType name="putShippingOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shippingId" type="xs:string"/>
+          <xs:element minOccurs="0" name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="order">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItem" type="tns:orderItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="orderItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="merchantSKU" type="xs:string"/>
+          <xs:element name="quantity" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="putShippingOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingOrderConfirmation" type="tns:shippingOrderConfirmation"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingOrderConfirmation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shippingOrder" type="tns:shippingOrder"/>
+          <xs:element name="orderReceivedStatus" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shippingId" type="xs:string"/>
+          <xs:element minOccurs="0" name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="putShippingOrderResponse">
+    <wsdl:part element="tns:putShippingOrderResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putShippingOrder">
+    <wsdl:part element="tns:putShippingOrder" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IFulfillment">
+    <wsdl:operation name="putShippingOrder">
+      <wsdl:input message="tns:putShippingOrder" name="putShippingOrder"></wsdl:input>
+      <wsdl:output message="tns:putShippingOrderResponse" name="putShippingOrderResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IFulfillmentServiceSoapBinding" type="tns:IFulfillment">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="putShippingOrder">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="putShippingOrder">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putShippingOrderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IFulfillmentService">
+    <wsdl:port binding="tns:IFulfillmentServiceSoapBinding" name="IFulfillmentPort">
+      <soap:address location="http://localhost:1080/OrderFulfillment"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:1080/OrderFulfillment</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="putShippingOrder" bindingOperationName="putShippingOrder" type="Request-Response" outputName="putShippingOrderResponse" inputName="putShippingOrder" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1080/OrderFulfillment</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://ordermgmt.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:putShippingOrder>
+         <shippingId>0001977</shippingId>
+         <order>
+            <orderItem>
+               <merchantSKU>25456</merchantSKU>
+               <quantity>799</quantity>
+            </orderItem>
+            <orderItem>
+               <merchantSKU>33378</merchantSKU>
+               <quantity>1500</quantity>
+            </orderItem>
+            <orderItem>
+               <merchantSKU>88976</merchantSKU>
+               <quantity>453</quantity>
+            </orderItem>
+            <orderItem>
+               <merchantSKU>88977</merchantSKU>
+               <quantity>67</quantity>
+            </orderItem>
+            <orderItem>
+               <merchantSKU>85979</merchantSKU>
+               <quantity>457</quantity>
+            </orderItem>
+         </order>
+      </ord:putShippingOrder>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ordermgmt.org/IFulfillment/putShippingOrder"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="IFulfillmentServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="putShippingOrder TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="putShippingOrder"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>IFulfillmentServiceSoapBinding</con:interface><con:operation>putShippingOrder</con:operation><con:request name="putShippingOrder"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1080/OrderFulfillment</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://ordermgmt.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:putShippingOrder>
+         <!--Optional:-->
+         <shippingId>?</shippingId>
+         <!--Optional:-->
+         <order>
+            <!--Zero or more repetitions:-->
+            <orderItem>
+               <!--Optional:-->
+               <merchantSKU>?</merchantSKU>
+               <quantity>?</quantity>
+            </orderItem>
+         </order>
+      </ord:putShippingOrder>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://ordermgmt.org/IFulfillment/putShippingOrder"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

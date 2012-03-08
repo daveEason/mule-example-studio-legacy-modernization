@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/sfdc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="CE-3.2.1" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd 
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/4.0/mule-sfdc.xsd ">
+    <sfdc:config name="sfconfig" username="username" password="password" securityToken="TOKEN" doc:name="SalesForce Configuration" doc:description="Global configuration for Salesforce operations"/>
+    <flow name="Fulfillment_LegacySystemModernization" doc:name="Fulfillment_LegacySystemModernization">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="1080" path="OrderFulfillment" doc:name="Receive Order" doc:description="Process HTTP reqests or responses."/>
+        <cxf:jaxws-service port="80" serviceClass="org.ordermgmt.IFulfillment" enableMuleSoapHeaders="false" doc:name="FulfillmentWebService" doc:description="Make a web service available via CXF"/>
+        <component class="org.ordermgmt.FulfillmentImpl" doc:name="Process Order" doc:description="Invoke a Java component"/>
+        <async doc:name="Async - Legacy Fulfillment Service">
+            <mulexml:object-to-xml-transformer doc:name="Transform-to-Xml"/>
+            <mulexml:xslt-transformer maxIdleTransformers="2" maxActiveTransformers="5" xsl-file="/Users/davideason/Development/MuleStudio/workspace/legacy_system_modernization/src/main/resources/XML2FLAT_FILE.xsl" doc:name="Legacy Transform(XSLT)"/>
+            <byte-array-to-string-transformer doc:name="Transform-to-String"/>
+            <file:outbound-endpoint path="/Users/davideason/Testing/LegacyModernizationExample/Output" outputPattern="ShippingOrder-#[function:datestamp].txt" doc:name="LegacyFulfillment"/>
+        </async>
+    </flow>
+</mule>
