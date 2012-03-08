@@ -1,0 +1,5 @@
+This is a simple Mule Studio project that illustrates a Legacy System Modernization use case.
+
+A SoapUI (3.6.1) project has been included for testing this application in the 'src/test/resources' directory named:
+
+"LegacySystemModernization-soapui-project.xml"
