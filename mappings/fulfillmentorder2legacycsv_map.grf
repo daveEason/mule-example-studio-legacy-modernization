@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="davideason" created="Tue Mar 19 07:10:11 PDT 2013" guiVersion="3.3.2" id="1363704008214" licenseCode="CLPXDMULES37812333BY" licenseType="Commercial" modified="Tue Mar 19 07:10:11 PDT 2013" modifiedBy="davideason" name="FulfillmentOrder2LegacyCSV_map" preview-file="${Project_Home}/src/test/resources/ShippingOrderConfirmation.groovy" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _type="Output" id="23b5774c-3f84-4ff6-848c-6ede73387bf8">
+<Record fieldDelimiter=";" name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" name="__id" type="long"/>
+<Field label="ShippingId" name="ShippingId" type="string"/>
+<Field label="BillingAddrName" name="BillingAddressName" type="string"/>
+<Field label="BillingAddrStreet" name="BillingAddressStreet" type="string"/>
+<Field label="BillingAddrCity" name="BillingAddrCity" type="string"/>
+<Field label="BillingAddrState" name="BillingAddrState" type="string"/>
+<Field label="BillingAddrCountry" name="BillingAddrCountry" type="string"/>
+<Field label="BillingAddrZipCode" name="BillingAddrZipCode" type="string"/>
+<Field label="ShippingAddrName" name="ShippingAddrName" type="string"/>
+<Field label="ShippingAddrStreet" name="ShippingAddrStreet" type="string"/>
+<Field label="ShippingAddrCity" name="ShippingAddrCity" type="string"/>
+<Field label="ShippingAddrState" name="ShippingAddrState" type="string"/>
+<Field label="ShippingAddrCountry" name="ShippingAddrCountry" type="string"/>
+<Field label="ShippingAddrZipCode" name="ShippingAddrZipCode" type="string"/>
+<Field label="MSKU" name="MSKU" type="string"/>
+<Field label="QTY" name="QTY" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/object/shippingOrder/order/orderItemList" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="8cbda5c5-4fb6-42f2-8385-25797e580034" _parent_id="__parent_id" _type="Input" id="fe96d502-d90e-4023-9a78-481477233b58">
+<Record fieldDelimiter="|" name="orderItemList" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/order/orderItemList/merchantSKU" containerType="SINGLE" label="merchantSKU" name="merchantSKU" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/order/orderItemList/quantity" containerType="SINGLE" label="quantity" name="quantity" type="integer"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/name" containerType="" label="Rule1" name="Rule1" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="8cbda5c5-4fb6-42f2-8385-25797e580034">
+<Record fieldDelimiter="|" name="ShippingOrderConfirmation" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __sourcePath="{}/object/orderReceivedStatus" containerType="SINGLE" label="orderReceivedStatus" name="orderReceivedStatus" type="boolean"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/city" containerType="SINGLE" label="city" name="city" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/countryCode" containerType="SINGLE" label="countryCode" name="countryCode" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/line1" containerType="SINGLE" label="line1" name="line1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/line2" containerType="SINGLE" label="line2" name="line2" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/name" containerType="SINGLE" label="name" name="name" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/postalCode" containerType="SINGLE" label="postalCode" name="postalCode" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/billingAddress/stateOrProvinceCode" containerType="SINGLE" label="stateOrProvinceCode" name="stateOrProvinceCode" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/city" containerType="SINGLE" label="city" name="city_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/countryCode" containerType="SINGLE" label="countryCode" name="countryCode_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/line1" containerType="SINGLE" label="line1" name="line1_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/line2" containerType="SINGLE" label="line2" name="line2_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/name" containerType="SINGLE" label="name" name="name_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingId" containerType="SINGLE" label="shippingId" name="shippingId" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/postalCode" containerType="SINGLE" label="postalCode" name="postalCode_1" type="string"/>
+<Field __sourcePath="{}/object/shippingOrder/shippingAddress/stateOrProvinceCode" containerType="SINGLE" label="stateOrProvinceCode" name="stateOrProvinceCode_1" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:inputPayload" guiHeight="0" guiName="Pojo READER" guiWidth="0" guiX="20" guiY="20" id="BEAN_READER0" type="BEAN_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context outPort="0" sequenceField="__id" xpath="./shippingOrder/order/orderItemList">
+  <Mapping cloverField="merchantSKU" trim="true" xpath="merchantSKU"/>
+  <Mapping cloverField="quantity" trim="true" xpath="quantity"/>
+  <Mapping cloverField="Rule1" trim="true" xpath="../../billingAddress/name"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema-object>
+  <typed-object-ref type-ref="org.ordermgmt.ShippingOrderConfirmation"/>
+  <typed-object type="int"/>
+  <typed-object type="org.ordermgmt.OrderItem">
+    <typed-object-ref name="merchantSKU" type-ref="java.lang.String"/>
+    <typed-object-ref name="quantity" type-ref="int"/>
+  </typed-object>
+  <typed-object type="org.ordermgmt.Address">
+    <typed-object-ref name="city" type-ref="java.lang.String"/>
+    <typed-object-ref name="countryCode" type-ref="java.lang.String"/>
+    <typed-object-ref name="line1" type-ref="java.lang.String"/>
+    <typed-object-ref name="line2" type-ref="java.lang.String"/>
+    <typed-object-ref name="name" type-ref="java.lang.String"/>
+    <typed-object-ref name="postalCode" type-ref="java.lang.String"/>
+    <typed-object-ref name="stateOrProvinceCode" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="java.lang.String"/>
+  <typed-object type="boolean"/>
+  <typed-object type="org.ordermgmt.Order">
+    <schema-collection name="orderItemList" type="java.util.List">
+      <typed-object-ref type-ref="org.ordermgmt.OrderItem"/>
+    </schema-collection>
+  </typed-object>
+  <typed-object type="org.ordermgmt.ShippingOrder">
+    <typed-object-ref name="billingAddress" type-ref="org.ordermgmt.Address"/>
+    <typed-object-ref name="order" type-ref="org.ordermgmt.Order"/>
+    <typed-object-ref name="shippingAddress" type-ref="org.ordermgmt.Address"/>
+    <typed-object-ref name="shippingId" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="org.ordermgmt.ShippingOrderConfirmation">
+    <typed-object-ref name="orderReceivedStatus" type-ref="boolean"/>
+    <typed-object-ref name="shippingOrder" type-ref="org.ordermgmt.ShippingOrder"/>
+  </typed-object>
+</schema-object>
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" excludeFields="__id" fileURL="dict:outputPayload" guiHeight="0" guiName="CSV WRITER" guiWidth="0" guiX="900" guiY="20" id="DATA_WRITER0" outputFieldNames="true" quotedStrings="true" type="DATA_WRITER">
+<attr name="_data_format"><![CDATA[CSV]]></attr>
+<attr name="__dataSourceDefinition"><![CDATA[${Project_Home}/src/test/resources/LegacySystemFulfillmentOrder_Example.csv]]></attr>
+</Node>
+<Node enabled="enabled" guiHeight="0" guiName="Foreach 'orderItemList' -&gt; 'object'" guiWidth="0" guiX="460" guiY="120" id="REFORMAT1" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = (isnull(input.__id) ? null : str2long(input.__id));
+//END -> DO NOT REMOVE
+output.MSKU = input.merchantSKU;
+output.QTY = (isnull(input.quantity) ? null : num2str(input.quantity));
+output.BillingAddressName = input.Rule1;]]></attr>
+</Node>
+<Node enabled="enabled" guiHeight="0" guiName="Simple Gather" guiWidth="0" guiX="680" guiY="20" id="SIMPLE_GATHER0" type="SIMPLE_GATHER"/>
+<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="fe96d502-d90e-4023-9a78-481477233b58" outPort="Port 0 (out)" toNode="REFORMAT1:0"/>
+<Edge debugMode="true" fromNode="REFORMAT1:0" guiBendpoints="" id="Edge4" inPort="Port 0 (in)" metadata="23b5774c-3f84-4ff6-848c-6ede73387bf8" outPort="Port 0 (out)" toNode="SIMPLE_GATHER0:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_GATHER0:0" guiBendpoints="" id="Edge3" inPort="Port 0 (in)" metadata="23b5774c-3f84-4ff6-848c-6ede73387bf8" outPort="Port 0 (out)" toNode="DATA_WRITER0:0"/>
+</Phase>
+</Graph>

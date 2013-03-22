@@ -13,10 +13,12 @@ public class FulfillmentImpl implements IFulfillment{
 	@Override
 	@WebResult(name="ShippingOrderConfirmation")
 	public ShippingOrderConfirmation putShippingOrder(@WebParam(name="shippingId") String shippingId,
-			 										  @WebParam(name="order")  Order order){
+			  										  @WebParam(name="billingAddress")  Address billingAddress,
+			  										  @WebParam(name="shippingAddress")  Address shippingAddress,
+			  										  @WebParam(name="order")  Order order){
 
 		try {
-			shippingOrder = new ShippingOrder(shippingId, order);
+			shippingOrder = new ShippingOrder(shippingId, billingAddress, shippingAddress, order);
 			shippingOrderConfirmation = new ShippingOrderConfirmation(shippingOrder,true);
 		} catch(Exception e)
 		

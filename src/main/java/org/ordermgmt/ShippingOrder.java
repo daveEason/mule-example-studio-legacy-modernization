@@ -10,14 +10,18 @@ import javax.xml.bind.annotation.XmlTransient;
 public class ShippingOrder {
 
 	public String shippingId;
+	public Address billingAddress;
+	public Address shippingAddress;
 	public Order order;
 	
 	public ShippingOrder(){
 		// default no-argument constructor
 	}
 	
-	public ShippingOrder(String shippingId, Order order){
+	public ShippingOrder(String shippingId, Address billingAddress, Address shippingAddress, Order order){
 		setShippingId(shippingId);
+		setBillingAdddress(billingAddress);
+		setShippingAdddress(shippingAddress);
 		setOrder(order);
 	}
 	
@@ -38,4 +42,23 @@ public class ShippingOrder {
 	public void setOrder(Order order){
 		this.order = order;
 	}
+
+	@XmlTransient
+	public Address getBillingAddress(){
+		return this.billingAddress;
+	}
+	
+	public void setBillingAdddress(Address billingAddress){
+		this.billingAddress = billingAddress;
+	}
+
+	@XmlTransient
+	public Address getShippingAddress(){
+		return this.shippingAddress;
+	}
+	
+	public void setShippingAdddress(Address shippingAddress){
+		this.shippingAddress = shippingAddress;
+	}
+
 }

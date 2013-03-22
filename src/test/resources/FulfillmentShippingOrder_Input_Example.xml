@@ -1,0 +1,32 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ord="http://ordermgmt.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ord:putShippingOrder>
+         <shippingId>1234567</shippingId>
+         <billingAddress>
+            <name>Tenant and Partners</name>
+            <line1>335 Ascertain Ct.</line1>
+            <line2></line2>
+            <city>St Louis</city>
+            <stateOrProvinceCode>MO</stateOrProvinceCode>
+            <countryCode>USA</countryCode>
+            <postalCode>93547</postalCode>
+         </billingAddress>
+         <shippingAddress>
+            <name>Tenant Storefront location</name>
+            <line1>88 Market St</line1>
+            <line2>Apt. 26</line2>
+            <city>Melbourne</city>
+            <stateOrProvinceCode>VIC</stateOrProvinceCode>
+            <countryCode>AUS</countryCode>
+            <postalCode>3000</postalCode>
+         </shippingAddress>
+         <order>
+            <orderItem>
+               <merchantSKU>SONY-3456</merchantSKU>
+               <quantity>500</quantity>
+            </orderItem>
+         </order>
+      </ord:putShippingOrder>
+   </soapenv:Body>
+</soapenv:Envelope>

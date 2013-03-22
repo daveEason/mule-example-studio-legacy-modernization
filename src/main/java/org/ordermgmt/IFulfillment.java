@@ -16,6 +16,8 @@ public interface IFulfillment {
 	
 	@WebResult(name="ShippingOrderConfirmation")
 	public ShippingOrderConfirmation putShippingOrder(@WebParam(name="shippingId") String shippingId,
+													  @WebParam(name="billingAddress")  Address billingAddress,
+													  @WebParam(name="shippingAddress")  Address shippingAddress,
 			 										  @WebParam(name="order")  Order order);
 	
 }
