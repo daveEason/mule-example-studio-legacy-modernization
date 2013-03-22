@@ -27,7 +27,21 @@
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
 <Field __sourcePath="{}/object/shippingOrder/order/orderItemList/merchantSKU" containerType="SINGLE" label="merchantSKU" name="merchantSKU" type="string"/>
 <Field __sourcePath="{}/object/shippingOrder/order/orderItemList/quantity" containerType="SINGLE" label="quantity" name="quantity" type="integer"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/name" containerType="" label="Rule1" name="Rule1" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}/../../billingAddress/name" containerType="" label="BillingAddressName" name="BillingAddressName" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line1" containerType="" label="BillingAddressLine1" name="BillingAddressLine1" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line2" containerType="" label="BillingAddressLine2" name="BillingAddressLine2" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/city" containerType="" label="BillingAddressCity" name="BillingAddressCity" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/stateOrProvinceCode" containerType="" label="BillingAddressState" name="BillingAddressState" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/countryCode" containerType="" label="BillingAddressCountry" name="BillingAddressCountry" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/postalCode" containerType="" label="BillingAddressPostalCode" name="BillingAddressPostalCode" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/name" containerType="" label="ShippingAddressName" name="ShippingAddressName" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line1" containerType="" label="ShippingAddressLine1" name="ShippingAddressLine1" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line2" containerType="" label="ShippingAddressLine2" name="ShippingAddressLine2" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/city" containerType="" label="ShippingAddressCity" name="ShippingAddressCity" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/stateOrProvinceCode" containerType="" label="ShippingAddressState" name="ShippingAddressState" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/countryCode" containerType="" label="ShippingAddressCountry" name="ShippingAddressCountry" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/postalCode" containerType="" label="ShippingAddressPostalCode" name="ShippingAddressPostalCode" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingId" containerType="" label="ShippingId" name="ShippingId" type="string"/>
 </Record>
 </Metadata>
 <Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="8cbda5c5-4fb6-42f2-8385-25797e580034">
@@ -62,7 +76,21 @@
 <Context outPort="0" sequenceField="__id" xpath="./shippingOrder/order/orderItemList">
   <Mapping cloverField="merchantSKU" trim="true" xpath="merchantSKU"/>
   <Mapping cloverField="quantity" trim="true" xpath="quantity"/>
-  <Mapping cloverField="Rule1" trim="true" xpath="../../billingAddress/name"/>
+  <Mapping cloverField="BillingAddressName" trim="true" xpath="../../billingAddress/name"/>
+  <Mapping cloverField="BillingAddressLine1" trim="true" xpath="../../billingAddress/line1"/>
+  <Mapping cloverField="BillingAddressLine2" trim="true" xpath="../../billingAddress/line2"/>
+  <Mapping cloverField="BillingAddressCity" trim="true" xpath="../../billingAddress/city"/>
+  <Mapping cloverField="BillingAddressState" trim="true" xpath="../../billingAddress/stateOrProvinceCode"/>
+  <Mapping cloverField="BillingAddressCountry" trim="true" xpath="../../billingAddress/countryCode"/>
+  <Mapping cloverField="BillingAddressPostalCode" trim="true" xpath="../../billingAddress/postalCode"/>
+  <Mapping cloverField="ShippingAddressName" trim="true" xpath="../../shippingAddress/name"/>
+  <Mapping cloverField="ShippingAddressLine1" trim="true" xpath="../../shippingAddress/line1"/>
+  <Mapping cloverField="ShippingAddressLine2" trim="true" xpath="../../shippingAddress/line2"/>
+  <Mapping cloverField="ShippingAddressCity" trim="true" xpath="../../shippingAddress/city"/>
+  <Mapping cloverField="ShippingAddressState" trim="true" xpath="../../shippingAddress/stateOrProvinceCode"/>
+  <Mapping cloverField="ShippingAddressCountry" trim="true" xpath="../../shippingAddress/countryCode"/>
+  <Mapping cloverField="ShippingAddressPostalCode" trim="true" xpath="../../shippingAddress/postalCode"/>
+  <Mapping cloverField="ShippingId" trim="true" xpath="../../shippingId"/>
 </Context>
 ]]></attr>
 <attr name="_data_format"><![CDATA[JAVA]]></attr>
@@ -114,7 +142,19 @@ output.__id = (isnull(input.__id) ? null : str2long(input.__id));
 //END -> DO NOT REMOVE
 output.MSKU = input.merchantSKU;
 output.QTY = (isnull(input.quantity) ? null : num2str(input.quantity));
-output.BillingAddressName = input.Rule1;]]></attr>
+output.BillingAddressName = input.BillingAddressName;
+output.BillingAddressStreet = input.BillingAddressLine1 + ' ' + input.BillingAddressLine2;
+output.BillingAddrCity = input.BillingAddressCity;
+output.BillingAddrState = input.BillingAddressState;
+output.BillingAddrCountry = input.BillingAddressCountry;
+output.BillingAddrZipCode = input.BillingAddressPostalCode;
+output.ShippingAddrName = input.ShippingAddressName;
+output.ShippingAddrStreet = input.ShippingAddressLine1 + ' ' + input.ShippingAddressLine2;
+output.ShippingAddrCity = input.ShippingAddressCity;
+output.ShippingAddrState = input.ShippingAddressState;
+output.ShippingAddrCountry = input.ShippingAddressCountry;
+output.ShippingAddrZipCode = input.ShippingAddressPostalCode;
+output.ShippingId = input.ShippingId;]]></attr>
 </Node>
 <Node enabled="enabled" guiHeight="0" guiName="Simple Gather" guiWidth="0" guiX="680" guiY="20" id="SIMPLE_GATHER0" type="SIMPLE_GATHER"/>
 <Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="fe96d502-d90e-4023-9a78-481477233b58" outPort="Port 0 (out)" toNode="REFORMAT1:0"/>

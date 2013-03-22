@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project name="LegacySystemModernization" soapui-version="3.6.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="IFulfillmentServiceSoapBinding" type="wsdl" bindingName="{http://ordermgmt.org/}IFulfillmentServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:1080/OrderFulfillment?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:1080/OrderFulfillment?wsdl"><con:part><con:url>http://localhost:1080/OrderFulfillment?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IFulfillmentService" targetNamespace="http://ordermgmt.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ordermgmt.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<con:soapui-project name="LegacyModernizationExample" resourceRoot="" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="IFulfillmentServiceSoapBinding" type="wsdl" bindingName="{http://ordermgmt.org/}IFulfillmentServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:1080/OrderFulfillment?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:1080/OrderFulfillment?wsdl"><con:part><con:url>http://localhost:1080/OrderFulfillment?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IFulfillmentService" targetNamespace="http://ordermgmt.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ordermgmt.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://ordermgmt.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="address" type="tns:address"/>
       <xs:element name="order" type="tns:order"/>
       <xs:element name="orderItem" type="tns:orderItem"/>
       <xs:element name="putShippingOrder" type="tns:putShippingOrder"/>
@@ -11,7 +12,20 @@
       <xs:complexType name="putShippingOrder">
         <xs:sequence>
           <xs:element minOccurs="0" name="shippingId" type="xs:string"/>
+          <xs:element minOccurs="0" name="billingAddress" type="tns:address"/>
+          <xs:element minOccurs="0" name="shippingAddress" type="tns:address"/>
           <xs:element minOccurs="0" name="order" type="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="line1" type="xs:string"/>
+          <xs:element minOccurs="0" name="line2" type="xs:string"/>
+          <xs:element minOccurs="0" name="city" type="xs:string"/>
+          <xs:element minOccurs="0" name="stateOrProvinceCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="order">
@@ -39,6 +53,8 @@
       <xs:complexType name="shippingOrder">
         <xs:sequence>
           <xs:element minOccurs="0" name="shippingId" type="xs:string"/>
+          <xs:element minOccurs="0" name="billingAddress" type="tns:address"/>
+          <xs:element minOccurs="0" name="shippingAddress" type="tns:address"/>
           <xs:element minOccurs="0" name="order" type="tns:order"/>
         </xs:sequence>
       </xs:complexType>
@@ -77,27 +93,37 @@
    <soapenv:Header/>
    <soapenv:Body>
       <ord:putShippingOrder>
-         <shippingId>0001977</shippingId>
+         <shippingId>1234</shippingId>
+         <billingAddress>
+            <name>Mulesoft</name>
+            <line1>77 Geary St</line1>
+            <line2>Level 4</line2>
+            <city>San Francisco</city>
+            <stateOrProvinceCode>CA</stateOrProvinceCode>
+            <countryCode>USA</countryCode>
+            <postalCode>94108</postalCode>
+         </billingAddress>
+         <shippingAddress>
+            <name>Mulesoft</name>
+            <line1>77 Geary St</line1>
+            <line2>Level 4</line2>
+            <city>San Francisco</city>
+            <stateOrProvinceCode>CA</stateOrProvinceCode>
+            <countryCode>USA</countryCode>
+            <postalCode>94108</postalCode>
+         </shippingAddress>
          <order>
             <orderItem>
-               <merchantSKU>25456</merchantSKU>
-               <quantity>799</quantity>
+               <merchantSKU>1234</merchantSKU>
+               <quantity>500</quantity>
             </orderItem>
             <orderItem>
-               <merchantSKU>33378</merchantSKU>
+               <merchantSKU>6789</merchantSKU>
                <quantity>1500</quantity>
             </orderItem>
             <orderItem>
-               <merchantSKU>88976</merchantSKU>
-               <quantity>453</quantity>
-            </orderItem>
-            <orderItem>
-               <merchantSKU>88977</merchantSKU>
-               <quantity>67</quantity>
-            </orderItem>
-            <orderItem>
-               <merchantSKU>85979</merchantSKU>
-               <quantity>457</quantity>
+               <merchantSKU>9998</merchantSKU>
+               <quantity>5000</quantity>
             </orderItem>
          </order>
       </ord:putShippingOrder>
@@ -108,6 +134,40 @@
       <ord:putShippingOrder>
          <!--Optional:-->
          <shippingId>?</shippingId>
+         <!--Optional:-->
+         <billingAddress>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <line1>?</line1>
+            <!--Optional:-->
+            <line2>?</line2>
+            <!--Optional:-->
+            <city>?</city>
+            <!--Optional:-->
+            <stateOrProvinceCode>?</stateOrProvinceCode>
+            <!--Optional:-->
+            <countryCode>?</countryCode>
+            <!--Optional:-->
+            <postalCode>?</postalCode>
+         </billingAddress>
+         <!--Optional:-->
+         <shippingAddress>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <line1>?</line1>
+            <!--Optional:-->
+            <line2>?</line2>
+            <!--Optional:-->
+            <city>?</city>
+            <!--Optional:-->
+            <stateOrProvinceCode>?</stateOrProvinceCode>
+            <!--Optional:-->
+            <countryCode>?</countryCode>
+            <!--Optional:-->
+            <postalCode>?</postalCode>
+         </shippingAddress>
          <!--Optional:-->
          <order>
             <!--Zero or more repetitions:-->
