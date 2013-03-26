@@ -28,7 +28,7 @@
             <property value="fulfillmentorder2legacycsv_map.grf" name="transformationGraphPath"/>
         </properties>
     </global-element>
-    <flow SubFlow="false" name="Fulfillment_LegacySystemModernization" entity-id="8eccb257-ae01-4d29-ac88-536e9fd58fc4">
+    <flow SubFlow="false" name="Fulfillment_LegacySystemModernization" entity-id="add18305-837a-4370-886d-94866f876406">
         <properties>
             <property name="processingStrategy"/>
             <property name="processingStrategy2"/>

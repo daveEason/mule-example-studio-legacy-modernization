@@ -27,21 +27,21 @@
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
 <Field __sourcePath="{}/object/shippingOrder/order/orderItemList/merchantSKU" containerType="SINGLE" label="merchantSKU" name="merchantSKU" type="string"/>
 <Field __sourcePath="{}/object/shippingOrder/order/orderItemList/quantity" containerType="SINGLE" label="quantity" name="quantity" type="integer"/>
-<Field __artificialType="XPATH" __xpath="{=}/../../billingAddress/name" containerType="" label="BillingAddressName" name="BillingAddressName" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line1" containerType="" label="BillingAddressLine1" name="BillingAddressLine1" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line2" containerType="" label="BillingAddressLine2" name="BillingAddressLine2" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/city" containerType="" label="BillingAddressCity" name="BillingAddressCity" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/stateOrProvinceCode" containerType="" label="BillingAddressState" name="BillingAddressState" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/countryCode" containerType="" label="BillingAddressCountry" name="BillingAddressCountry" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/postalCode" containerType="" label="BillingAddressPostalCode" name="BillingAddressPostalCode" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/name" containerType="" label="ShippingAddressName" name="ShippingAddressName" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line1" containerType="" label="ShippingAddressLine1" name="ShippingAddressLine1" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line2" containerType="" label="ShippingAddressLine2" name="ShippingAddressLine2" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/city" containerType="" label="ShippingAddressCity" name="ShippingAddressCity" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/stateOrProvinceCode" containerType="" label="ShippingAddressState" name="ShippingAddressState" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/countryCode" containerType="" label="ShippingAddressCountry" name="ShippingAddressCountry" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/postalCode" containerType="" label="ShippingAddressPostalCode" name="ShippingAddressPostalCode" type="string"/>
-<Field __artificialType="XPATH" __xpath="{=}../../shippingId" containerType="" label="ShippingId" name="ShippingId" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}/../../billingAddress/name" label="BillingAddressName" name="BillingAddressName" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line1" label="BillingAddressLine1" name="BillingAddressLine1" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/line2" label="BillingAddressLine2" name="BillingAddressLine2" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/city" label="BillingAddressCity" name="BillingAddressCity" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/stateOrProvinceCode" label="BillingAddressState" name="BillingAddressState" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/countryCode" label="BillingAddressCountry" name="BillingAddressCountry" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../billingAddress/postalCode" label="BillingAddressPostalCode" name="BillingAddressPostalCode" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/name" label="ShippingAddressName" name="ShippingAddressName" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line1" label="ShippingAddressLine1" name="ShippingAddressLine1" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/line2" label="ShippingAddressLine2" name="ShippingAddressLine2" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/city" label="ShippingAddressCity" name="ShippingAddressCity" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/stateOrProvinceCode" label="ShippingAddressState" name="ShippingAddressState" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/countryCode" label="ShippingAddressCountry" name="ShippingAddressCountry" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingAddress/postalCode" label="ShippingAddressPostalCode" name="ShippingAddressPostalCode" type="string"/>
+<Field __artificialType="XPATH" __xpath="{=}../../shippingId" label="ShippingId" name="ShippingId" type="string"/>
 </Record>
 </Metadata>
 <Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="8cbda5c5-4fb6-42f2-8385-25797e580034">
